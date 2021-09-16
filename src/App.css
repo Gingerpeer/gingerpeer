@@ -1,0 +1,110 @@
+* {
+  text-align: center;
+  background-color: black;
+  color: whitesmoke;
+}
+.pink{
+  color: #FF00FF 
+}
+.purple{
+  color: #7843E6 
+}
+.teal{
+  color: #00FFFF 
+}
+
+#Nav{
+  margin-right: 5%;
+}
+#ColorLine{
+  height: 1vw;
+  background-image: linear-gradient(to right, #FF00FF , #7843E6, #00FFFF);
+}
+#Footer{
+  background-color: transparent;
+  width:100%;
+  right: 0;
+}
+#Footer p{
+        color: white;
+    font-size: small;  
+}
+#Home{
+  padding-bottom: 60%;
+}
+
+#ProfilePic{
+  width:35%;
+  float:right;
+  border-radius: 5%;
+  margin-left: 5%;
+  margin-top: 5%;
+}
+
+#homeContent{
+  float: left;
+  width: 90%;
+}
+#WorkContact{
+  padding-bottom: 5%;
+}
+
+
+#ContactDetails{
+  padding-bottom: 5%;
+}
+.caseStudy{
+  padding-top: 15%;
+}
+.Heading{
+  background: -webkit-linear-gradient( #FF00FF , #7843E6, #00FFFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.Style {
+  margin-top: 5%;
+  text-align: center;
+  margin-left: 12%;
+  width:75%;
+}
+    .Style h1{
+        font-size: 3vw;
+        text-align: center; 
+        
+    }
+    .Style p{
+      font-size: 1.5vw;
+      text-align:center;
+    }
+    .Style ul{
+      font-size: 1.5vw;
+      text-align: center;
+    }
+   
+@media only screen and (max-width: 1024px) {
+  .Style h1{
+    font-size: 8vw;
+    text-align: center;
+    }
+    .Style p{
+      font-size: 4vw;
+      text-align: center;
+    }
+    .Style ul{
+      font-size: 4vw;
+      text-align: center;
+    }
+
+}
+.Logo {
+  width: 10%;
+  margin-left: 6%;
+  pointer-events: none;
+}
+.btn-lg{
+  background-color: black;
+  margin-right: 1%;
+}
+
+
+
