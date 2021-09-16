@@ -13,7 +13,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 const Footer = () => {
     return(
         <div id='Footer' className="footer-copyright text-center">Copyright 2021 ©
-            <a id='copyLink' href="https://gingerpeer.com"> Pierre van Zyl</a>
+            <a id='copyLink' href="https://www.gingerpeer.com" taget="_blank"> Pierre van Zyl</a>
         </div>
     );
 }
