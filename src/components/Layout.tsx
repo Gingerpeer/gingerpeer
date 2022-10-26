@@ -7,7 +7,7 @@ import Head from 'next/head'
 
 export default function Layout({children}:{children: React.ReactNode}) {
   return (
-    <div>
+    <div className='bg-black text-white'>
     <div className='nav'>
       <Head>
         <title>Gingerpeer</title>
