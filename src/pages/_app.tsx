@@ -11,11 +11,11 @@ const MyApp: AppType<{ session: Session | null }> = ({
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <SessionProvider session={session}>
-      <Layout {...pageProps}>
-        <Component {...pageProps} />
-      </Layout>
-    </SessionProvider>
+    <Layout>
+      <SessionProvider session={session}>
+          <Component {...pageProps} />
+      </SessionProvider>
+    </Layout>
   );
 };
 
