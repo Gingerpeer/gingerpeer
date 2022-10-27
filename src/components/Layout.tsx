@@ -26,9 +26,9 @@ export default function Layout({children}:{children: React.ReactNode}) {
       </div>
         <div className='md:hidden'>
           <button className='absolute right-9 top-9' onClick={()=> showMenu === "hidden absolute right-9 md:flex md:mx-auto md:items-center md:w-auto md:space-x-6" ? setShowMenu("mt-20 mr-5") : setShowMenu("hidden absolute right-9 md:flex md:mx-auto md:items-center md:w-auto md:space-x-6")}>
-             <hr className='my-2 mx-auto w-10 h-0.5 bg-white rounded border-0 dark:bg-white' />
-             <hr className='my-2 mx-auto w-10 h-0.5 bg-white rounded border-0 dark:bg-white' />
-             <hr className='my-2 mx-auto w-10 h-0.5 bg-white rounded border-0 dark:bg-white' />
+             <hr className='my-2 mx-auto w-10 h-0.5 bg-purple-600 rounded border-0 dark:bg-purple-600' />
+             <hr className='my-2 mx-auto w-10 h-0.5 bg-purple-600 rounded border-0 dark:bg-purple-600' />
+             <hr className='my-2 mx-auto w-10 h-0.5 bg-purple-600 rounded border-0 dark:bg-purple-600' />
           </button>
         </div>
         <div className=''>
