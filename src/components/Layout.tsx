@@ -43,7 +43,7 @@ export default function Layout({children}:{children: React.ReactNode}) {
       </div>
       <hr className='my-2 mx-auto text-transparent h-1 bg-gradient-to-r from-purple-600 via-purple-500 to-teal-300 mb-10 animate-pulse'/>
       {children}
-      <div className='absolute right-10 bottom-5 text-xs'>
+      <div className='sticky top-[100vh] p-5 text-right text-xs'>
         <em>Copyright &copy; 2022 | Pierre Daniel van Zyl </em>
       </div>
     </div>
