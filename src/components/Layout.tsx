@@ -33,17 +33,17 @@ export default function Layout({children}:{children: React.ReactNode}) {
         </div>
         <div className=''>
           <div className={`${showMenu}`}>
-            <Link href='/'><a className='block text-right text-md text-teal-300 hover:text-purple-600'>Home</a></Link>
-            <Link href='/about'><a className='block text-right text-md text-teal-300 hover:text-purple-600'>About</a></Link>
-            <Link href='/work'><a className='block text-right text-md text-teal-300 hover:text-purple-600'>My Work</a></Link>
-            <Link href='/contact'><a className='block text-right text-md text-teal-300 hover:text-purple-600'>Contact Me</a></Link>
-            <Link href='/blog'><a className='block text-right text-md text-teal-300 hover:text-purple-600'>Blog</a></Link>
+            <Link href='/'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Home</a></Link>
+            <Link href='/about'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>About</a></Link>
+            <Link href='/work'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>My Work</a></Link>
+            <Link href='/contact'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Contact Me</a></Link>
+            <Link href='/blog'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Blog</a></Link>
           </div>
         </div>
       </div>
-      <hr className='my-2 mx-auto text-transparent h-1 bg-gradient-to-r from-purple-600 via-purple-500 to-teal-300 mb-10 animate-pulse'/>
+      <hr className='my-2 mx-auto text-transparent h-1 bg-gradient-to-r from-purple-500 via-purple-500 to-cyan-300 mb-10 animate-pulse'/>
       {children}
-      <div className='sticky top-[100vh] p-5 text-right text-xs'>
+      <div className='sticky top-[100vh] p-5 text-right text-xs text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300'>
         <em>Copyright &copy; 2022 | Pierre Daniel van Zyl </em>
       </div>
     </div>
