@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             </p>
             <p className="mt-7">If you need a web application, e-commerce website or a landing page. I am here to build your specific product meeting your individual needs all whilst ensuring that you get a beautifully designed, fully functional and secure application.</p>
             <p className="mt-7">I would love to connect with you, and start the adventure of building your application.</p>
-             <div className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 hover:animate-pulse" >
+             <div className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 animate-bounce" >
                 <Link href="/contact">Contact me</Link>
              </div>  
           </article>
