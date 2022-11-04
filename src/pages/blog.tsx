@@ -19,8 +19,8 @@ const Blog: NextPage = () => {
   }
 
 
-  if (isLoading) return <p>Loading...</p>
-  if (!data) return <p>Blog</p>
+  if (isLoading) return <p className="text-3xl md:text-6xl text-center">Loading...</p>
+  if (!data) return <p className="text-3xl md:text-6xl text-center">My Blog</p>
 
   return (
     <>
@@ -37,7 +37,7 @@ const Blog: NextPage = () => {
           <em>Created on {d.date}</em>
         </div>
         ):
-        <div>Blog</div>
+        <div></div>
         }
       </main>
     </>

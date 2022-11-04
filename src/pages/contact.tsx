@@ -8,7 +8,7 @@ const contact: NextPage = () => {
         <title>Gingerpeer | Contact</title>
       </Head>
       <div>
-        <h1>Contact</h1>
+        <h1 className="text-3xl md:text-6xl text-center">Contact</h1>
       </div>
     </>
   )

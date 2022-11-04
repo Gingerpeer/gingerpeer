@@ -8,7 +8,7 @@ const Work: NextPage = () => {
         <title>Gingerpeer | Portfolio</title>
       </Head>
       <div>
-        <h1>My Portfolio</h1>
+        <h1 className="text-3xl md:text-6xl text-center">My Portfolio</h1>
       </div>
     </>
   )
