@@ -37,7 +37,7 @@ const Work: NextPage = () => {
       </Head>
       <div className="flex-row">
         <h1 className="text-3xl md:text-6xl text-center mb-5">My Portfolio</h1>
-        <div className="card bg-slate-400 rounded p-5 md:flex sm:flex-row basis-1/2">
+        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2">
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-14">Avantgarde 2332
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
@@ -71,7 +71,7 @@ const Work: NextPage = () => {
           <p className="text-center">Avantgarde 2332 Google Drive Integration</p>
           </div>}
         </div>
-        <div className="card bg-slate-400 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
+        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-11">Shield Life & South-African Army
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
@@ -96,7 +96,7 @@ const Work: NextPage = () => {
           <p className="text-center">Shield Life Privacy Policy for South-African Army</p>
           </div>}
         </div>
-        <div className="card bg-slate-400 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
+        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-60 md:max-w-[25vw] md:ml-20 md:mt-14">KJ to Calorie React Native App
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import { useState,useEffect } from 'react'
-
+import {Socials} from '../components/Socials'
 interface Blog{
   id: string
   author: string
@@ -20,7 +20,10 @@ const Blog: NextPage = () => {
 
 
   if (isLoading) return <p className="text-3xl md:text-6xl text-center">Loading...</p>
-  if (!data) return <p className="text-3xl md:text-6xl text-center">My Blog</p>
+  if (!data) return (<div>
+    <p className="text-3xl md:text-6xl text-center">My Blog</p>
+    <Socials />
+    </div>)
 
   return (
     <>

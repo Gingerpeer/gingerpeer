@@ -1,12 +1,46 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
+import emailjs from '@emailjs/browser';
+import emailJs from "../JSON/emailJs.json"
+import { Socials } from "../components/Socials";
+
 
 const Contact: NextPage = () => {
   const [ name, setName ] = useState("")
   const [ email, setEmail ] = useState("")
   const [ message, setMessage ] = useState("")
+  const [ loading, setLoading ] = useState(false)
+  const [ completed, setCompleted ] = useState(false)
+  const [ error, setError ] = useState(false)
 
+
+  const sendMail = async (e:FormEvent) => {
+    e.preventDefault()
+    setLoading(true)
+    const templateParams = {
+      from_name: name,
+      to_name: "Gingerpeer",
+      reply_to: email, 
+      message: message
+    } 
+    const ejServiceId = emailJs.SERVICE_ID
+    const ejTemplateId = emailJs.TEMPLATE_ID
+    const ejPublicKey = emailJs.TEMPLATE_PUBLIC_KEY
+      emailjs.send(ejServiceId,ejTemplateId,templateParams,ejPublicKey).then(res=>{
+        console.log(console.log('SUCCESS!', res.status, res.text))
+        setCompleted(true)
+        setLoading(false)
+        setError(false)
+      }, error => {
+          console.log("FAILED...", error)
+          setError(true)
+          setLoading(false)
+          setCompleted(false)
+      })
+    return true
+  }
+  
   return (
     <>
       <Head>
@@ -14,9 +48,12 @@ const Contact: NextPage = () => {
       </Head>
       <div>
         <h1 className="text-3xl md:text-6xl text-center">Contact Me</h1>
-        <form className="flex-row text-center p-5">
+        {!completed ? <form 
+          className="flex-row text-center p-5"
+          onSubmit={(e)=>sendMail(e)}
+        >
           <input 
-            className="p-2 rounded bg-slate-800"
+            className="p-2 rounded bg-slate-800 min-w-[50vw]"
             type="text"
             name={name}
             placeholder="Name..."
@@ -25,7 +62,7 @@ const Contact: NextPage = () => {
           />
           <br/>
           <input 
-            className="p-2 rounded mt-2 bg-slate-800"
+            className="p-2 rounded mt-2 bg-slate-800 min-w-[50vw]"
             type="email"
             name={email}
             placeholder="Email Address..."
@@ -33,21 +70,44 @@ const Contact: NextPage = () => {
             onChange={(e)=> setEmail(e.target.value)}
           />
           <br/>
-          <input 
-            className="p-2 rounded mt-2 bg-slate-800"
-            type="text"
+          <textarea 
+            className="p-2 rounded mt-2 bg-slate-800 min-w-[50vw] min-h-[25vh]"
             name={message}
             placeholder="Message..."
             required
             onChange={(e)=> setMessage(e.target.value)}
           />
           <br/>
-          <button 
+          <div className="grid grid-cols-4 mt-2">
+          {!loading ?<button 
             type="submit"
             placeholder="Submit"
-            className="bg-slate-500 p-2 font-extrabold rounded mt-2 h-11"
+            className="bg-slate-800 p-2 font-extrabold rounded mt-2 h-11 min-w-[15vw] col-start-2 col-end-3"
           >Submit</button>
+          :
+          <p 
+            placeholder="Submit"
+            className="bg-slate-800 p-2 font-extrabold rounded mt-2 h-11 min-w-[15vw] col-start-2 col-end-3 animate-pulse"
+          >Loading...</p>
+          }
+          </div>
         </form>
+        :
+        <div className="grid grid-cols-4">
+          {error ? <span>
+            <h4 className="text-center font-extrabold md:text-xl text-red-500">There seems to have been an error</h4>
+            <p className="text-center">Please try again or alternatively contact me directly on the bellow socials</p>
+            <Socials />
+          </span>
+          : 
+          <div className="bg-slate-800 rounded p-5 mt-5 col-start-2 col-end-4">
+            <h4 className="text-center font-extrabold md:text-xl text-cyan-300">Thank you for your communication!</h4>
+            <p className="text-center">I will be getting back to your soon.</p>
+            <p className="text-center mb-5">You can also find me on the below socials</p>
+            <Socials />
+          </div>}
+        </div>  
+      }
       </div>
     </>
   )
