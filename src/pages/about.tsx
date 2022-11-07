@@ -68,7 +68,8 @@ const About: NextPage = () => {
                 <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Sedgefield, Western Cape, South Africa</li> 
                 <li className='ml-2 list-disc'>Online Virtual Assistant</li>
                 <li><em className='font-bold text-cyan-300'>Date:</em> January  2019 - To March 2020</li>
-                <li><em className='font-bold text-cyan-300'>Details:</em> After many years in the corporate legal sector, I found myself yearning for more creativity and decided to at last pursue a career within my passions. After careful discussions with my superiors, I stepped down with the understanding that I will remain as a virtual assistant to assist in the transition without my expertise whilst I venture into my new pursuit of software engineering full-time.</li>
+                <li><em className='font-bold text-cyan-300'>Details:</em> After many years in the corporate legal sector, I found myself yearning for more creativity and decided to at last pursue a career within my passions. After careful discussions with my superiors, I stepped down with the understanding that I will remain as a virtual assistant to assist in the transition without my expertise whilst I venture into my new pursuit of software engineering full-time.
+                </li>
               </ul>
               <ul className="flex-auto lg:w-64 hover:animate-pulse  card bg-slate-800 p-5 rounded mt-7 mb-7">
                 <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Sedgefield, Western Cape, South Africa</li>
