@@ -22,6 +22,8 @@ const Blog: NextPage = () => {
   if (isLoading) return <p className="text-3xl md:text-6xl text-center">Loading...</p>
   if (!data) return (<div>
     <p className="text-3xl md:text-6xl text-center">My Blog</p>
+    <p className='text-center mt-5 text-xl'>Blogs Pending...</p>
+    <p className='text-center mt-5 text-lg'>Follow me on the below Socials in the meantime</p>
     <Socials />
     </div>)
 
