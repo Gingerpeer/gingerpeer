@@ -162,6 +162,7 @@ const Comments = () => {
 
 const Blog: NextPage = () => {
   const { data: session, status } = useSession();
+  const [ disabledBtn, setDisabledBtn ] = useState(false)
   return (
     <>
       <Head>
@@ -170,9 +171,17 @@ const Blog: NextPage = () => {
       <main className='text-center'>
         <p className="text-3xl md:text-6xl text-center">My Blog</p>
         {session && session.user?.name === "Gingerpeer" ? <BlogCreate /> : <span></span>}
-        {!session ? <button className="mt-10 btn bg-slate-800 p-2 rounded-md" onClick={()=> signIn("discord")}>
+        {!session ? <button className="mt-10 btn bg-slate-800 p-2 rounded-md" disabled={disabledBtn} onClick={async()=> {
+          setDisabledBtn(true)
+          await signIn("discord")
+          setDisabledBtn(false)
+          }}>
                 Login with Discord to Comment
-        </button>:<button className="mt-10 btn bg-slate-800 p-2 rounded-md" onClick={()=> signOut()}>
+        </button>:<button className="mt-10 btn bg-slate-800 p-2 rounded-md" disabled={disabledBtn} onClick={async()=> {
+          setDisabledBtn(true)
+          await signOut()
+          setDisabledBtn(false)
+          }}>
                 {session.user?.name} Logout
         </button>}
         {session ? <BlogsData userName={session.user?.name as string} /> : <span></span>}
