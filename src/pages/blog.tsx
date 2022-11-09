@@ -5,7 +5,7 @@ import { trpc } from "../utils/trpc";
 import { useState } from 'react'
 import { Socials } from '../components/Socials'
 
-const BlogsData = () => {
+const BlogsData = ({ userName } : { userName: string}) => {
   const { data: blogs, isLoading } = trpc.blog.getAll.useQuery()
   const [ showMore, setShowMore ] = useState({id: "", show: false})
 
@@ -23,7 +23,10 @@ const BlogsData = () => {
             {showMore.id === blog.id ? 
               <p className='mt-2'>{full} <br/><button className='bg-slate-500 p-1 rounded' onClick={()=>setShowMore({id: "", show: false})}>Hide</button></p> 
                 : 
-              <p className='mt-2'>{short} <button className='bg-slate-500 p-1 rounded' onClick={()=>setShowMore({id: blog.id, show: true})}>Show More</button></p>}
+              <div>
+                <p className='mt-2'>{short} <button className='bg-slate-500 p-1 rounded' onClick={()=>setShowMore({id: blog.id, show: true})}>Show More</button></p>
+                <Comments />
+              </div>}
           </div>
         )
       }):<p className='col-span-6 text-center mt-5 text-xl'>Blogs Coming Soon...</p>
@@ -84,6 +87,79 @@ const BlogCreate = () => {
     </form>
   )
 }
+
+
+
+const AddComment = ({ userName } : { userName: string}) => {
+  const { data: session, status } = useSession();
+  const [ message, setMessage ] = useState("")
+
+  const ctx = trpc.useContext()
+
+  const postMessage = trpc.comment.postMessage.useMutation({
+    onMutate: () => {
+      ctx.comment.getAll.cancel()
+
+      const optimisticUpdate = ctx.comment.getAll.getData()
+      if(optimisticUpdate){
+        ctx.comment.getAll.setData(optimisticUpdate)
+      }
+    },
+    onSettled: () => {
+      ctx.comment.invalidate()
+    }
+  })
+  return(<div className="pt-6">
+  <form
+    className="flex gap-2"
+    onSubmit={(event)=>{
+      event.preventDefault();
+
+      postMessage.mutate({
+        name: userName as string,
+        message,
+      });
+      
+      setMessage("");
+    }}
+    >
+      <input 
+        type="text"
+        value={message}
+        placeholder="Your message..."
+        maxLength={100}
+        onChange={(event)=> setMessage(event.target.value)}
+        className="px-4 py-2 rounded-md border-2 border-zinc-800 bg-neutral-900 focus:outline-none"
+      />
+      <button
+        type="submit"
+        className="p-2 rounded-md border-2 border-zinc-800 focus:outline-none"
+        >
+        Submit
+      </button>
+  </form>
+</div>)
+}
+const Comments = () => {
+  const { data: comments, isLoading } = trpc.comment.getAll.useQuery()
+  
+  if(isLoading) return <div>Fetching comments...</div>
+  return(
+    <div className="flex flex-col gap-4">
+      {
+        comments?.map((msg,index)=>{
+          return (
+            <div key={index}>
+              <p>{msg.message}</p>
+              <span>- {msg.name}</span>
+            </div>
+          )
+        })
+      }
+    </div>
+  )
+}
+
 const Blog: NextPage = () => {
   const { data: session, status } = useSession();
   return (
@@ -91,11 +167,16 @@ const Blog: NextPage = () => {
       <Head>
         <title>Gingerpeer | Blog</title>
       </Head>
-      <main>
+      <main className='text-center'>
         <p className="text-3xl md:text-6xl text-center">My Blog</p>
-        <BlogCreate />
-        <BlogsData />
-        <p className='text-center mt-5 text-lg'>Follow me on the Socials below</p>
+        {session && session.user?.name === "Gingerpeer" ? <BlogCreate /> : <span></span>}
+        {!session ? <button className="mt-10 btn bg-slate-800 p-2 rounded-md" onClick={()=> signIn("discord")}>
+                Login with Discord to Comment
+        </button>:<button className="mt-10 btn bg-slate-800 p-2 rounded-md" onClick={()=> signOut()}>
+                {session.user?.name} Logout
+        </button>}
+        {session ? <BlogsData userName={session.user?.name as string} /> : <span></span>}
+        <p className='text-center mt-5 text-lg col-span-6'>Follow me on the Socials below</p>
         <Socials />
       </main>
     </>
