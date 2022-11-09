@@ -1,31 +1,36 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState,useEffect } from 'react'
-import {Socials} from '../components/Socials'
-interface Blog{
-  id: string
-  author: string
-  title: string
-  body: string
-  date: string
+import { useState } from 'react'
+import { trpc } from "../utils/trpc";
+import { Socials } from '../components/Socials'
+
+const BlogsData = () => {
+  const { data: blogs, isLoading } = trpc.blog.getAll.useQuery()
+  const [ showMore, setShowMore ] = useState({id: "", show: false})
+
+  if(isLoading) return <div className='text-3xl md:text-6xl text-center'>Loading Blogs...</div>
+  return(
+    <div className="grid grid-cols-6">{
+      blogs && blogs.length > 0 ? blogs?.map((blog, index)=>{
+        const short = blog.body.slice(0,50) + "..."
+        const full = blog.body
+        return(
+          <div key={index} className={showMore.id === blog.id ? "m-5 md:m-16 p-5 bg-slate-800 rounded max-w-fit col-span-6" : "m-5 md:m-16 p-5 bg-slate-800 rounded max-w-fit col-start-2 col-end-6" }>
+            <h1 className='text-xl'>{blog.title}</h1>
+            <p><em>{blog.date.toDateString()}</em></p>
+            <p><em>By {blog.author}</em></p>
+            {showMore.id === blog.id ? 
+              <p className='mt-2'>{full} <br/><button className='bg-slate-500 p-1 rounded' onClick={()=>setShowMore({id: "", show: false})}>Hide</button></p> 
+                : 
+              <p className='mt-2'>{short} <button className='bg-slate-500 p-1 rounded' onClick={()=>setShowMore({id: blog.id, show: true})}>Show More</button></p>}
+          </div>
+        )
+      }):<p className='col-span-6 text-center mt-5 text-xl'>Blogs Coming Soon...</p>
+    }</div>
+  )
 }
 
 const Blog: NextPage = () => {
-  const [data, setData] = useState<Blog[]>()
-  const [isLoading, setLoading] = useState(false)
-
-  const handleClick = async (id: string) =>{
-    console.log(id)
-  }
-
-
-  if (isLoading) return <p className="text-3xl md:text-6xl text-center">Loading...</p>
-  if (!data) return (<div>
-    <p className="text-3xl md:text-6xl text-center">My Blog</p>
-    <p className='text-center mt-5 text-xl'>Blogs Pending...</p>
-    <p className='text-center mt-5 text-lg'>Follow me on the below Socials in the meantime</p>
-    <Socials />
-    </div>)
 
   return (
     <>
@@ -33,17 +38,10 @@ const Blog: NextPage = () => {
         <title>Gingerpeer | Blog</title>
       </Head>
       <main>
-        {data.length ? data.map(d=><div style={{
-          padding: "1em"
-        }} key={d.id} onClick={()=>handleClick(d.id)}>
-          <h1>{d.title}</h1>
-          <em>By {d.author}</em>
-          <p>{d.body}</p>
-          <em>Created on {d.date}</em>
-        </div>
-        ):
-        <div></div>
-        }
+        <p className="text-3xl md:text-6xl text-center">My Blog</p>
+        <BlogsData />
+        <p className='text-center mt-5 text-lg'>Follow me on the Socials below</p>
+        <Socials />
       </main>
     </>
   )
