@@ -71,7 +71,7 @@ const Contact: NextPage = () => {
           />
           <br/>
           <textarea 
-            className="p-2 rounded mt-2 bg-slate-800 min-w-[50vw] min-h-[25vh]"
+            className="p-2 rounded mt-2 bg-slate-800 min-w-[50vw]"
             name={message}
             placeholder="Message..."
             required
