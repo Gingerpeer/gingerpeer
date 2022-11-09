@@ -75,7 +75,7 @@ model Blog {
 
 model Comment {
     id        String   @id @default(cuid())
-    createdAt DateTime @default(now())
     name      String
     message   String   @db.VarChar(100)
+    createdAt DateTime @default(now())
 }

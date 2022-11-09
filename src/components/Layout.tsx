@@ -38,6 +38,7 @@ export default function Layout({children}:{children: React.ReactNode}) {
             <Link href='/work'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>My Work</a></Link>
             <Link href='/contact'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Contact Me</a></Link>
             <Link href='/blog'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Blog</a></Link>
+            <Link href='/admin'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Admin</a></Link>
           </div>
         </div>
       </div>
