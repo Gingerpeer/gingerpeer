@@ -16,7 +16,7 @@ const BlogsData = ({ userName } : { userName: string}) => {
         const short = blog.body.slice(0,50) + "..."
         const full = blog.body
         return(
-          <div key={index} className={showMore.id === blog.id ? "m-5 md:m-16 p-5 bg-slate-800 rounded max-w-fit col-span-6" : "m-5 md:m-16 p-5 bg-slate-800 rounded max-w-fit col-start-2 col-end-6" }>
+          <div key={index} className={showMore.id === blog.id ? "m-5 p-5 bg-slate-800 rounded max-w-fit col-span-6" : "m-5 p-5 bg-slate-800 rounded max-w-fit col-span-6" }>
             <h1 className='text-xl'>{blog.title}</h1>
             <p><em>{blog.date.toDateString()}</em></p>
             <p><em>By {blog.author}</em></p>
@@ -37,7 +37,7 @@ const BlogCreate = () => {
   const [ author,setAuthor ] = useState("")
   const [ title,setTitle ] = useState("")
   const [ body,setBody ] = useState("")
-  
+  const [ hide, setHide ] = useState(false)
   const ctx = trpc.useContext()
   
   const postMessage = trpc.blog.postMessage.useMutation({
@@ -54,14 +54,18 @@ const BlogCreate = () => {
     }
   })
   return(
-    <form className='grid grid-cols-4' onSubmit={(event)=>{
+  <div>
+    {!hide ? <form className='grid grid-cols-4' onSubmit={ async (event)=>{
       event.preventDefault()
 
-      postMessage.mutate({
+      await postMessage.mutate({
         author,
         title,
         body
       })
+      setAuthor("")
+      setTitle("")
+      setBody("")
     }}>
       <input 
         className="p-2 rounded bg-slate-800 min-w-[50vw] col-span-4 md:col-start-2 md:col-end-3 mt-2"
@@ -84,7 +88,12 @@ const BlogCreate = () => {
         onChange={(e)=> setBody(e.target.value)}
       />
       <button type='submit' className='bg-slate-800 p-2 rounded col-span-4 md:col-start-2 md:col-end-3 mt-2 hover:animate-pulse'>Submit</button>
-    </form>
+      
+    </form>:
+    <span></span>
+  }
+  <button className='bg-slate-800 p-2 rounded col-span-4 md:col-start-2 md:col-end-3 mt-2 hover:animate-pulse' onClick={()=> hide ? setHide(false): setHide(true)} >{hide ? "Show Blog Create": "hide"}</button>
+  </div>
   )
 }
 
@@ -147,14 +156,15 @@ const Comments = () => {
   return(
     <div className="flex flex-col gap-4">
       {
-        comments?.map((msg,index)=>{
+        comments ? comments?.map((msg,index)=>{
           return (
             <div key={index}>
               <p>{msg.message}</p>
               <span>- {msg.name}</span>
             </div>
           )
-        })
+        }):
+        <p>No Comments have been made...</p>
       }
     </div>
   )
