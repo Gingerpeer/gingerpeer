@@ -1,7 +1,8 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import { useState } from 'react'
+import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
+import { useState } from 'react'
 import { Socials } from '../components/Socials'
 
 const BlogsData = () => {
@@ -29,9 +30,62 @@ const BlogsData = () => {
     }</div>
   )
 }
+const BlogCreate = () => {
+  const [ author,setAuthor ] = useState("")
+  const [ title,setTitle ] = useState("")
+  const [ body,setBody ] = useState("")
+  
+  const ctx = trpc.useContext()
+  
+  const postMessage = trpc.blog.postMessage.useMutation({
+    onMutate: ()=> {
+      ctx.blog.getAll.cancel()
 
+      const optimisticUpdate = ctx.blog.getAll.getData()
+      if(optimisticUpdate){
+        ctx.blog.getAll.setData(optimisticUpdate)
+      }
+    },
+    onSettled: () => {
+      ctx.blog.invalidate()
+    }
+  })
+  return(
+    <form className='grid grid-cols-4' onSubmit={(event)=>{
+      event.preventDefault()
+
+      postMessage.mutate({
+        author,
+        title,
+        body
+      })
+    }}>
+      <input 
+        className="p-2 rounded bg-slate-800 min-w-[50vw] col-span-4 md:col-start-2 md:col-end-3 mt-2"
+        type="text"
+        value={author}
+        placeholder="Author Name..."
+        onChange={(e)=> setAuthor(e.target.value)}
+      />
+      <input 
+        className="p-2 rounded bg-slate-800 min-w-[50vw] col-span-4 md:col-start-2 md:col-end-3 mt-2"
+        type="text"
+        value={title}
+        placeholder="Blog Title..."
+        onChange={(e)=> setTitle(e.target.value)}
+      />
+      <textarea 
+        className="p-2 rounded bg-slate-800 min-w-[50vw] col-span-4 md:col-start-2 md:col-end-3 mt-2"
+        value={body}
+        placeholder="Body of Blog..."
+        onChange={(e)=> setBody(e.target.value)}
+      />
+      <button type='submit' className='bg-slate-800 p-2 rounded col-span-4 md:col-start-2 md:col-end-3 mt-2 hover:animate-pulse'>Submit</button>
+    </form>
+  )
+}
 const Blog: NextPage = () => {
-
+  const { data: session, status } = useSession();
   return (
     <>
       <Head>
@@ -39,6 +93,7 @@ const Blog: NextPage = () => {
       </Head>
       <main>
         <p className="text-3xl md:text-6xl text-center">My Blog</p>
+        <BlogCreate />
         <BlogsData />
         <p className='text-center mt-5 text-lg'>Follow me on the Socials below</p>
         <Socials />

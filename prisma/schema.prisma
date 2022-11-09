@@ -72,3 +72,10 @@ model Blog {
   body String
   date DateTime @default(now())
 }
+
+model Comment {
+    id        String   @id @default(cuid())
+    createdAt DateTime @default(now())
+    name      String
+    message   String   @db.VarChar(100)
+}
