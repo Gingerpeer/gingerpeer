@@ -3,7 +3,6 @@ import React from 'react';
 import Head from 'next/head'
 import { trpc } from "../utils/trpc";
 import { useState } from 'react'
-import { Socials } from '../components/Socials'
 
 const BlogsData = () => {
   const { data: blogs, isLoading } = trpc.blog.getAll.useQuery()
@@ -52,9 +51,6 @@ const Blog: NextPage = () => {
       <main className='text-center'>
         <p className="text-3xl md:text-6xl text-center">My Blog</p>
         <BlogsData /> 
-        
-        <p className='text-center mt-5 text-lg col-span-6'>Follow me @ the Socials below</p>
-        <Socials />
       </main>
     </>
   )

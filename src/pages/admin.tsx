@@ -4,7 +4,6 @@ import Head from 'next/head'
 import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import { useState} from 'react'
-import { Socials } from '../components/Socials'
 
 
 const BlogCreate = () => {
@@ -97,7 +96,6 @@ const Admin: NextPage = () => {
       }}>
             {session.user?.name} Logout
     </button>}
-    <Socials />
     </main>
     </>
   )
