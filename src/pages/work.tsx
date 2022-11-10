@@ -12,24 +12,52 @@ import { useState } from "react"
 const Work: NextPage = () => {
   const [ agNext, setAgNext ] = useState(0)
   const [ shieldNext, setShieldNext ] = useState(0)
+
   // need to make the transition between images smoother
-  setTimeout(()=>{
-    if(agNext === 0){
-      setAgNext(1)
+ const changeImage = async (IGName: string,IGNumber: number) => {
+  if(IGName === "agNext"){
+    switch (IGNumber) {
+      case 0:
+        setAgNext(1)
+        break;
+      case 1:
+        setAgNext(2)
+        break;
+      case 2:
+        setAgNext(0)
+        break;
+      default:
+        break;
     }
-    if(agNext === 1){
-      setAgNext(2)
+  }
+  if(IGName === "shieldNext"){
+    switch (IGNumber) {
+      case 0:
+        setShieldNext(1)
+        break;
+      case 1:
+        setShieldNext(0)
+      default:
+        break;
     }
-    if(agNext === 2){
-      setAgNext(0)
-    }
-    if(shieldNext === 0){
-      setShieldNext(1)
-    }
-    if(shieldNext === 1){
-      setShieldNext(0)
-    }
-  },3000)
+  }
+  return 
+ }
+    // if(agNext === 0){
+    //   setAgNext(1)
+    // }
+    // if(agNext === 1){
+    //   setAgNext(2)
+    // }
+    // if(agNext === 2){
+    //   setAgNext(0)
+    // }
+    // if(shieldNext === 0){
+    //   setShieldNext(1)
+    // }
+    // if(shieldNext === 1){
+    //   setShieldNext(0)
+    // }
   return (
     <>
       <Head>
@@ -41,41 +69,52 @@ const Work: NextPage = () => {
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-14">Avantgarde 2332
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
-          {agNext === 0 &&<div>
-            <Image 
-            src={AGDashboard}
-            width={640}
-            height={390}
-            alt="Avantgarde 2332 Dashboard Image"
-            className="rounded"
-          />
-          <p className="text-center">Avantgarde 2332 Dashboard Page</p>
+          {agNext === 0 &&<div className="grid grid-cols-3">
+            <div className="col-span-3">
+              <Image 
+              src={AGDashboard}
+              width={640}
+              height={390}
+              alt="Avantgarde 2332 Dashboard Image"
+              className="rounded"
+               />
+            </div>
+          <p className="text-center col-span-2 p-2">Avantgarde 2332 Dashboard Page</p>
+          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
           </div>}
-          {agNext === 1 &&<div>
-            <Image 
-            src={AGLogin}
-            width={640}
-            height={390}
-            alt="Avantgarde 2332 Auth Image"
-            className="rounded"
-          />
-            <p className="text-center">Avantgarde 2332 Auth Page</p>
+          {agNext === 1 &&<div className="grid grid-cols-3">
+            <div className="col-span-3">
+                <Image 
+                src={AGLogin}
+                width={640}
+                height={390}
+                alt="Avantgarde 2332 Auth Image"
+                className={"rounded"}
+              />
+          </div>
+            <p className="text-center col-span-2 p-2">Avantgarde 2332 Auth Page</p>
+            <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
           </div>}
-          {agNext === 2 &&<div><Image 
-            src={AGGoogle}
-            width={640}
-            height={390}
-            alt="Avantgarde 2332 Google Drive Integration Image"
-            className="rounded"
-          />
-          <p className="text-center">Avantgarde 2332 Google Drive Integration</p>
+          {agNext === 2 &&<div className="grid grid-cols-3">
+            <div className="col-span-3">
+                  <Image 
+                src={AGGoogle}
+                width={640}
+                height={390}
+                alt="Avantgarde 2332 Google Drive Integration Image"
+                className={"rounded"}
+              />
+          </div>
+          <p className="text-center col-span-2 p-2">Avantgarde 2332 Google Drive Integration</p>
+          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
           </div>}
         </div>
         <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-11">Shield Life & South-African Army
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
-          {shieldNext === 0 &&<div>
+          {shieldNext === 0 &&<div className="grid grid-cols-3">
+            <div className="col-span-3">
             <Image 
             src={SANewMember}
             width={640}
@@ -83,9 +122,12 @@ const Work: NextPage = () => {
             alt="Avantgarde 2332 Dashboard Image"
             className="rounded"
           />
-          <p className="text-center">Shield Life New Member for South-African Army</p>
+          </div>
+          <p className="text-center col-span-2 p-2">Shield Life New Member for South-African Army</p>
+          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("shieldNext",shieldNext)}>Next</button>
           </div>}
-          {shieldNext === 1 &&<div>
+          {shieldNext === 1 &&<div className="grid grid-cols-3">
+            <div className="col-span-3">
             <Image 
             src={ShieldPopia}
             width={640}
@@ -93,7 +135,9 @@ const Work: NextPage = () => {
             alt="Avantgarde 2332 Auth Image"
             className="rounded"
           />
-          <p className="text-center">Shield Life Privacy Policy for South-African Army</p>
+          </div>
+          <p className="text-center col-span-2 p-2">Shield Life Privacy Policy for South-African Army</p>
+          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("shieldNext",shieldNext)}>Next</button>
           </div>}
         </div>
         <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
