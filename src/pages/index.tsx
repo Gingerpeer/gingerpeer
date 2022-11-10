@@ -30,7 +30,7 @@ const Home: NextPage = () => {
             <p className="mt-7">My specialization in Next.js inevitably results in my expertise in React.js which I use to build both Web Based and Mobile Base Applications with either Next.js, React or React Native.
             </p>
             <p className="mt-7">I would love to connect with you, and start the adventure of building your application.</p>
-             <div className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 animate-bounce" >
+             <div className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 animate-bounce hover:animate-none" >
                 <Link href="/contact">Contact me</Link>
              </div>  
           </article>
