@@ -83,13 +83,13 @@ const Admin: NextPage = () => {
     <div>
       {session && session?.user?.name ? <h1 className='text-2xl'>Sorry, you are unfortunately not authorized to Access this page.</h1> : <span></span>} 
     </div>}
-    {!session ? <button className="mt-10 btn bg-slate-800 p-2 rounded-md" disabled={disabledBtn} onClick={async()=> {
+    {!session ? <button className="mt-5 btn bg-slate-800 p-2 rounded-md hover:bg-slate-500" disabled={disabledBtn} onClick={async()=> {
       setDisabledBtn(true)
       await signIn("discord")
       setDisabledBtn(false)
       }}>
             Login with Discord
-    </button>:<button className="mt-10 btn bg-slate-800 p-2 rounded-md" disabled={disabledBtn} onClick={async()=> {
+    </button>:<button className="mt-5 btn bg-slate-800 p-2 rounded-md hover:bg-slate-500" disabled={disabledBtn} onClick={async()=> {
       setDisabledBtn(true)
       await signOut()
       setDisabledBtn(false)
