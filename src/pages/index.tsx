@@ -20,7 +20,7 @@ const Home: NextPage = () => {
       <main className="p-10">
         <h1 className="text-3xl md:text-6xl text-center">Pierre Daniel van Zyl</h1>
         <br/>
-        <h2 className="mb-5 text-2xl text-center md:text-5xl">Next.js Developer</h2>
+        <h2 className="mb-5 text-xl text-center md:text-3xl">FullStack React Engineer</h2>
         
         <div className="md:flex lg:flex-row">
           <article className="mb-10 md:basis-1/2 p-2 mr-1 lg:ml-20">
@@ -28,9 +28,9 @@ const Home: NextPage = () => {
               <Image className="rounded" width={100} height={125} src={Profile} alt="Pierre van Zyl Picture" />
             </span> */}
             <p className="mt-7 mb-7">Hi there.<br/> My name is Pierre van Zyl I am a software engineer specializing in the T3 stack. <br/>Ie. TypeScript, Next.js, tRCP, React Query, Tailwind.css & PostgreSql.</p>
+            <p className="mt-7">I build web applications, mobile applications, e-commerce websites and landing pages. Building your specific product and meeting your individual needs is what I strive for, all whilst ensuring that you get a beautifully designed, fully functional and secure application.</p>
             <p className="mt-7">My specialization in Next.js inevitably results in my expertise in React.js which I use to build both Web Based and Mobile Base Applications with either Next.js, React or React Native.
             </p>
-            <p className="mt-7">If you need a web application, e-commerce website or a landing page. I am here to build your specific product meeting your individual needs all whilst ensuring that you get a beautifully designed, fully functional and secure application.</p>
             <p className="mt-7">I would love to connect with you, and start the adventure of building your application.</p>
              <div className="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 animate-bounce" >
                 <Link href="/contact">Contact me</Link>
