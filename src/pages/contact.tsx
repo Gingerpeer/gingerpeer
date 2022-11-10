@@ -82,7 +82,7 @@ const Contact: NextPage = () => {
           {!loading ?<button 
             type="submit"
             placeholder="Submit"
-            className="bg-slate-800 p-2 font-extrabold rounded mt-2 h-11 min-w-[15vw] col-start-2 col-end-3"
+            className="bg-slate-800 p-2 font-extrabold rounded mt-2 h-11 min-w-[15vw] col-start-2 col-end-3 hover:bg-slate-500"
           >Submit</button>
           :
           <p 
