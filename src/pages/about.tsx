@@ -65,21 +65,21 @@ const About: NextPage = () => {
               </article>
               <article className='lg:flex lg:gap-7 md:flex-row'>
               <ul className="flex-auto lg:w-64 hover:bg-slate-500  card bg-slate-800 p-5 rounded mt-7 mb-7">
-                <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Sedgefield, Western Cape, South Africa</li> 
+                <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Polokwane, South Africa</li> 
                 <li className='ml-2 list-disc list-inside'>Online Virtual Assistant</li>
                 <li><em className='font-bold text-cyan-300'>Date:</em> January  2019 - To March 2020</li>
                 <li><em className='font-bold text-cyan-300'>Details:</em> After many years in the corporate legal sector, I found myself yearning for more creativity and decided to at last pursue a career within my passions. After careful disc list-insideussions with my superiors, I stepped down with the understanding that I will remain as a virtual assistant to assist in the transition without my expertise whilst I venture into my new pursuit of software engineering full-time.
                 </li>
               </ul>
               <ul className="flex-auto lg:w-64 hover:bg-slate-500  card bg-slate-800 p-5 rounded mt-7 mb-7">
-                <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Sedgefield, Western Cape, South Africa</li>
+                <li><em className='font-bold text-cyan-300'>Self-Employed</em>, Sedgefield, South Africa</li>
                 <li className='ml-2 list-disc list-inside'>Software Engineer (REACT) Freelance</li>
                 <li><em className='font-bold text-cyan-300'>Date:</em> April 2020- June 2021</li>
                 <li><em className='font-bold text-cyan-300'>Details:</em> I have been a freelance software engineer developing robust applications for multiple different clients using different languages and frameworks to get the job done. However, I have spent most of my time building React applications.
                 </li>
               </ul>
               <ul className="flex-auto lg:w-64 hover:bg-slate-500  card bg-slate-800 p-5 rounded mt-7 mb-7">
-                <li><em className='font-bold text-cyan-300'>Avant Garde 2332</em> Contractor(Remote), Sedgefield, Western Cape, South Africa</li>
+                <li><em className='font-bold text-cyan-300'>Avant Garde 2332</em> Contractor(Remote), Sedgefield, South Africa</li>
                 <li className='ml-2 list-disc list-inside'>Software Engineer (T3 Stack) Contractor </li>
                 <li><em className='font-bold text-cyan-300'>Date:</em> July 2021 to Date </li>
                 <li><em className='font-bold text-cyan-300'>Details:</em> I have been a working at Avant Garde 2332 up to date working mostly in React and the T3 stack using TypeScript, tRPC, PostgresSQL, TailwindCss and Prisma</li>
