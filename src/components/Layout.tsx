@@ -45,7 +45,7 @@ export default function Layout({children}:{children: React.ReactNode}) {
       </div>
       <hr className='my-2 mx-auto text-transparent h-1 bg-gradient-to-r from-purple-500 via-purple-500 to-cyan-300 mb-10 animate-pulse'/>
       {children}
-      <p className='text-center mt-5 text-lg col-span-6'>Follow me @ the Socials below</p>
+      
       <Socials />
       <div className='sticky top-[100vh] p-5 text-right text-xs text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300'>
         <em className='pt-5'>Copyright &copy; 2022 | Pierre Daniel van Zyl </em>
