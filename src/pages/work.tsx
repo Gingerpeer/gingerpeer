@@ -310,7 +310,8 @@ const Work: NextPage = () => {
         <div className="rounded p-5 md:grid md:grid-cols-2 mt-5 md:items-center">
         <div className="">
             <h2 className="text-2xl md:text-4xl text-center mb-5">KJ to Calorie React Native App
-            <p className="text-sm text-left mt-2 p-2 md:pl-11">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
+            <p className="text-sm text-left mt-2 p-2 md:pl-11">I Created a simple React Native Application to convert Kilojoules into Calories as to assist myself in my own calorie counting as well as testing out the use case and implementation of React Native as a mobile development tool.</p>
+            <p className="text-sm text-center p-1">The app can be found at <a className="text-cyan-400 hover:text-purple-500" href="https://play.google.com/store/apps/details?id=com.gingerpeer.kjtocal" target="_blank" rel="noreferrer" >Kj to Calorie</a></p>
             </h2>
           </div>
           <div className="text-center">
