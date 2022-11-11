@@ -14,31 +14,63 @@ const Work: NextPage = () => {
   const [ shieldNext, setShieldNext ] = useState(0)
 
   // need to make the transition between images smoother
- const changeImage = async (IGName: string,IGNumber: number) => {
+ const changeImage = async (IGName: string,IGNumber: number, Direction: string) => {
   if(IGName === "agNext"){
-    switch (IGNumber) {
-      case 0:
-        setAgNext(1)
-        break;
-      case 1:
-        setAgNext(2)
-        break;
-      case 2:
-        setAgNext(0)
-        break;
-      default:
-        break;
+    if(Direction === "forward"){
+      switch (IGNumber) {
+        case 0:
+          setAgNext(1)
+          break;
+        case 1:
+          setAgNext(2)
+          break;
+        case 2:
+          setAgNext(0)
+          break;
+        default:
+          break;
+      }
     }
+    if(Direction === "back"){
+      switch (IGNumber) {
+        case 0:
+          setAgNext(2)
+          break;
+        case 1:
+          setAgNext(0)
+          break;
+        case 2:
+          setAgNext(1)
+          break;
+        default:
+          break;
+      }
+    }  
   }
   if(IGName === "shieldNext"){
-    switch (IGNumber) {
-      case 0:
-        setShieldNext(1)
-        break;
-      case 1:
-        setShieldNext(0)
-      default:
-        break;
+    if(Direction === "forward"){
+      switch (IGNumber) {
+        case 0:
+          setShieldNext(1)
+          break;
+        case 1:
+          setShieldNext(0)
+          break;
+        default:
+          break;
+      }
+    }
+    if(Direction === "back"){
+      switch (IGNumber) {
+        case 0:
+          setShieldNext(1)
+          break;
+        case 1:
+          setShieldNext(0)
+          break;
+        default:
+          break;
+      }
     }
   }
   return 
@@ -55,8 +87,9 @@ const Work: NextPage = () => {
           <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-14">Avantgarde 2332
           <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
-          {agNext === 0 &&<div className="grid grid-cols-3">
-            <div className="col-span-3">
+          {agNext === 0 &&<div className="grid grid-cols-6">
+            <div className="col-span-6">
+            <p className="text-center p-1">Dashboard Page</p>
               <Image 
               src={AGDashboard}
               width={640}
@@ -65,11 +98,14 @@ const Work: NextPage = () => {
               className="rounded"
                />
             </div>
-          <p className="text-center col-span-2 p-2">Avantgarde 2332 Dashboard Page</p>
-          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
+            <div className="col-span-6 grid grid-cols-6">
+              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+            </div>
           </div>}
           {agNext === 1 &&<div className="grid grid-cols-3">
             <div className="col-span-3">
+            <p className="text-center col-span-2 p-2">Avantgarde 2332 Auth Page</p>
                 <Image 
                 src={AGLogin}
                 width={640}
@@ -78,11 +114,15 @@ const Work: NextPage = () => {
                 className={"rounded"}
               />
           </div>
-            <p className="text-center col-span-2 p-2">Avantgarde 2332 Auth Page</p>
-            <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
+            
+          <div className="col-span-6 grid grid-cols-6">
+              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+            </div>
           </div>}
           {agNext === 2 &&<div className="grid grid-cols-3">
             <div className="col-span-3">
+              <p className="text-center col-span-2 p-2">Avantgarde 2332 Google Drive Integration</p>
                   <Image 
                 src={AGGoogle}
                 width={640}
@@ -91,8 +131,11 @@ const Work: NextPage = () => {
                 className={"rounded"}
               />
           </div>
-          <p className="text-center col-span-2 p-2">Avantgarde 2332 Google Drive Integration</p>
-          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("agNext",agNext)}>Next</button>
+          
+          <div className="col-span-6 grid grid-cols-6">
+              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+            </div>
           </div>}
         </div>
         <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
@@ -101,6 +144,7 @@ const Work: NextPage = () => {
           </h2>
           {shieldNext === 0 &&<div className="grid grid-cols-3">
             <div className="col-span-3">
+            <p className="text-center col-span-2 p-2">Shield Life New Member for South-African Army</p>
             <Image 
             src={SANewMember}
             width={640}
@@ -109,21 +153,26 @@ const Work: NextPage = () => {
             className="rounded"
           />
           </div>
-          <p className="text-center col-span-2 p-2">Shield Life New Member for South-African Army</p>
-          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("shieldNext",shieldNext)}>Next</button>
+          <div className="col-span-6 grid grid-cols-6">
+              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
+            </div>
           </div>}
           {shieldNext === 1 &&<div className="grid grid-cols-3">
             <div className="col-span-3">
-            <Image 
-            src={ShieldPopia}
-            width={640}
-            height={390}
-            alt="Avantgarde 2332 Auth Image"
-            className="rounded"
-          />
+            <p className="text-center col-span-2 p-2">Shield Life Privacy Policy for South-African Army</p>
+              <Image 
+              src={ShieldPopia}
+              width={640}
+              height={390}
+              alt="Avantgarde 2332 Auth Image"
+              className="rounded"
+            />
           </div>
-          <p className="text-center col-span-2 p-2">Shield Life Privacy Policy for South-African Army</p>
-          <button className="col-start-3 max-w-fit pl-5 pr-5 md:ml-10 mt-2 bg-slate-500 hover:bg-slate-300 rounded" onClick={()=>changeImage("shieldNext",shieldNext)}>Next</button>
+          <div className="col-span-6 grid grid-cols-6">
+              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
+            </div>
           </div>}
         </div>
         <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
