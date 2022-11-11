@@ -4,6 +4,8 @@ import Head from 'next/head'
 import { signIn, signOut, useSession } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import { useState} from 'react'
+import DiscordImg from '../../public/discord.svg'
+import Image from 'next/image';
 
 
 const BlogCreate = () => {
@@ -76,20 +78,23 @@ const Admin: NextPage = () => {
         <title>Gingerpeer | Admin</title>
       </Head>
     <main className='text-center'>
-      <h1 className='text-4xl mb-7'>Admin</h1>
+      <h1 className='text-3xl md:text-6xl text-center text-purple-500'><em className='text-cyan-400'>&lt;</em> Admin <em className='text-cyan-400'>/&gt;</em></h1>
       {status === "loading" && <p className='text-xl'>Loading User...</p>}
     { session?.user?.name === "Gingerpeer" ? <BlogCreate />
     :
     <div>
       {session && session?.user?.name ? <h1 className='text-2xl'>Sorry, you are unfortunately not authorized to Access this page.</h1> : <span></span>} 
     </div>}
-    {!session ? <button className="mt-5 btn bg-slate-800 p-2 rounded-md hover:bg-slate-500" disabled={disabledBtn} onClick={async()=> {
-      setDisabledBtn(true)
-      await signIn("discord")
-      setDisabledBtn(false)
-      }}>
-            Login with Discord
-    </button>:<button className="mt-5 btn bg-slate-800 p-2 rounded-md hover:bg-slate-500" disabled={disabledBtn} onClick={async()=> {
+    {!session ? <div className='mt-5'>
+          <p className='font-bold text-lg pb-2'>Login</p>
+          <button className="hover:opacity-50" disabled={disabledBtn} onClick={async()=> {
+            setDisabledBtn(true)
+            await signIn("discord")
+            setDisabledBtn(false)
+            }}>
+                <Image src={DiscordImg} width="64" height="64" alt="https://freeicons.io/super-tiny-icons/discord-icon-28476#" />
+          </button>
+      </div>:<button className="mt-5 btn bg-slate-800 p-2 rounded-md hover:bg-slate-500" disabled={disabledBtn} onClick={async()=> {
       setDisabledBtn(true)
       await signOut()
       setDisabledBtn(false)

@@ -10,7 +10,7 @@ const About: NextPage = () => {
         <title>Gingerpeer | About</title>
       </Head>
       <div className='p-5'>
-        <h1 className="text-3xl md:text-6xl text-center">About Me</h1>
+        <h1 className="text-3xl md:text-6xl text-center text-purple-500"><em className='text-cyan-400'>&lt;</em> About Me <em className='text-cyan-400'>/&gt;</em></h1>
         <div className="flex-row">
               <article className="">
                 <h2 className='flex-none text-2xl mt-10 text-center'>Soft-Skills</h2>

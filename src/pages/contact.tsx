@@ -47,7 +47,7 @@ const Contact: NextPage = () => {
         <title>Gingerpeer | Contact</title>
       </Head>
       <div>
-        <h1 className="text-3xl md:text-6xl text-center">Contact Me</h1>
+        <h1 className="text-3xl md:text-6xl text-center text-purple-500"><em className='text-cyan-400'>&lt;</em> Contact Me <em className='text-cyan-400'>/&gt;</em></h1>
         {!completed ? <form 
           className="flex-row text-center p-5"
           onSubmit={(e)=>sendMail(e)}

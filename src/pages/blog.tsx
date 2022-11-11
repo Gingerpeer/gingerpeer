@@ -49,7 +49,7 @@ const Blog: NextPage = () => {
         <title>Gingerpeer | Blog</title>
       </Head>
       <main className='text-center'>
-        <p className="text-3xl md:text-6xl text-center">My Blog</p>
+        <p className="text-3xl md:text-6xl text-center text-purple-500"><em className='text-cyan-400'>&lt;</em> My Blog <em className='text-cyan-400'>/&gt;</em></p>
         <BlogsData /> 
       </main>
     </>

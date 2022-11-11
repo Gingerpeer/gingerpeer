@@ -16,7 +16,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/G200.png" />
       </Head>
       <main className="p-10">
-        <h1 className="text-3xl md:text-6xl text-center">Pierre Daniel van Zyl</h1>
+        <h1 className="text-3xl md:text-6xl text-center text-purple-500"><em className='text-cyan-400'>&lt;</em> Pierre Daniel van Zyl <em className='text-cyan-400'>/&gt;</em></h1>
         <br/>
         <h2 className="mb-5 text-xl text-center md:text-3xl">FullStack React Engineer</h2>
         
