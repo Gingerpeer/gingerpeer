@@ -81,15 +81,17 @@ const Work: NextPage = () => {
       <Head>
         <title>Gingerpeer | Portfolio</title>
       </Head>
-      <div className="flex-row">
+      <div>
         <h1 className="text-3xl md:text-6xl text-center mb-5 text-purple-500"><em className='text-cyan-400'>&lt;</em> My Portfolio <em className='text-cyan-400'>/&gt;</em></h1>
-        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2">
-          <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-14">Avantgarde 2332
-          <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
+        <div className="rounded p-5 md:grid md:grid-cols-2 mt-5 md:items-center">
+          <div className="md:pr-5">
+          <h2 className="text-2xl md:text-4xl text-center mb-5">Avantgarde 2332
+          <p className="text-sm text-left mt-2 p-2 md:pl-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
-          {agNext === 0 &&<div className="grid grid-cols-6">
-            <div className="col-span-6">
-            <p className="text-center p-1">Dashboard Page</p>
+          </div>
+          {agNext === 0 &&<div className="text-center">
+            <div className="text-center">
+            <p className="p-1">Dashboard Page</p>
               <Image 
               src={AGDashboard}
               width={640}
@@ -99,13 +101,13 @@ const Work: NextPage = () => {
                />
             </div>
             <div className="col-span-6 grid grid-cols-6">
-              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
-              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+              <button className="min-w-[5vw] col-span-1 col-start-2 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-6 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
             </div>
           </div>}
-          {agNext === 1 &&<div className="grid grid-cols-3">
-            <div className="col-span-3">
-            <p className="text-center col-span-2 p-2">Avantgarde 2332 Auth Page</p>
+          {agNext === 1 &&<div className="text-center">
+            <div className="text-center">
+            <p className="p-2">Avantgarde 2332 Auth Page</p>
                 <Image 
                 src={AGLogin}
                 width={640}
@@ -116,13 +118,13 @@ const Work: NextPage = () => {
           </div>
             
           <div className="col-span-6 grid grid-cols-6">
-              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
-              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+              <button className="min-w-[5vw] col-span-1 col-start-2 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-6 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
             </div>
           </div>}
-          {agNext === 2 &&<div className="grid grid-cols-3">
-            <div className="col-span-3">
-              <p className="text-center col-span-2 p-2">Avantgarde 2332 Google Drive Integration</p>
+          {agNext === 2 &&<div className="text-center">
+            <div className="text-center">
+              <p className="text-center p-2">Avantgarde 2332 Google Drive Integration</p>
                   <Image 
                 src={AGGoogle}
                 width={640}
@@ -133,18 +135,20 @@ const Work: NextPage = () => {
           </div>
           
           <div className="col-span-6 grid grid-cols-6">
-              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
-              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
+              <button className="min-w-[5vw] col-span-1 col-start-2 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-6 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("agNext",agNext,"forward")}>/ &gt;</button>
             </div>
           </div>}
         </div>
-        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
-          <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-20 md:max-w-[25vw] md:ml-9 md:mt-11">Shield Life & South-African Army
-          <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
+        <div className="rounded p-5 md:grid md:grid-cols-2 mt-5 md:items-center">
+          <div className="md:pr-5">
+            <h2 className="text-2xl md:text-4xl text-center mb-5">Shield Life & South-African Army
+            <p className="text-sm text-left mt-2 p-2 md:pl-7">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
           </h2>
-          {shieldNext === 0 &&<div className="grid grid-cols-3">
-            <div className="col-span-3">
-            <p className="text-center col-span-2 p-2">Shield Life New Member for South-African Army</p>
+          </div>
+          {shieldNext === 0 &&<div className="text-center">
+            <div className="text-center">
+            <p className="p-2">Shield Life New Member for South-African Army</p>
             <Image 
             src={SANewMember}
             width={640}
@@ -154,13 +158,13 @@ const Work: NextPage = () => {
           />
           </div>
           <div className="col-span-6 grid grid-cols-6">
-              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
-              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
+              <button className="min-w-[5vw] col-span-1 col-start-2 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-6 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
             </div>
           </div>}
-          {shieldNext === 1 &&<div className="grid grid-cols-3">
-            <div className="col-span-3">
-            <p className="text-center col-span-2 p-2">Shield Life Privacy Policy for South-African Army</p>
+          {shieldNext === 1 &&<div className="">
+            <div className="text-center">
+              <p className="p-2">Shield Life Privacy Policy for South-African Army</p>
               <Image 
               src={ShieldPopia}
               width={640}
@@ -170,16 +174,19 @@ const Work: NextPage = () => {
             />
           </div>
           <div className="col-span-6 grid grid-cols-6">
-              <button className="min-w-[5vw] col-span-1 pl-2 ml-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
-              <button className="min-w-[5vw] col-span-1 col-end-8 pl-2 mr-[5vw] pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
+              <button className="min-w-[5vw] col-span-1 col-start-2 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"back")}>&lt;</button>
+              <button className="min-w-[5vw] col-span-1 col-end-6 pl-2 pr-2 p-1 mt-2 bg-purple-500 hover:bg-purple-300 rounded text-cyan-300" onClick={()=>changeImage("shieldNext",shieldNext,"forward")}>/ &gt;</button>
             </div>
           </div>}
         </div>
-        <div className="card bg-slate-800 rounded p-5 md:flex sm:flex-row basis-1/2 mt-5">
-          <h2 className="text-2xl md:text-4xl text-center mb-5 md:mr-60 md:max-w-[25vw] md:ml-20 md:mt-14">KJ to Calorie React Native App
-          <p className="text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
-          </h2>
-          <div className="ml-11 md:ml-0">
+        <div className="rounded p-5 md:grid md:grid-cols-2 mt-5 md:items-center">
+        <div className="">
+            <h2 className="text-2xl md:text-4xl text-center mb-5">KJ to Calorie React Native App
+            <p className="text-sm text-left mt-2 p-2 md:pl-11">Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita nisi earum eius eveniet natus, autem sit numquam impedit tempore consequuntur iusto, vitae beatae! Mollitia eum temporibus laborum et itaque iure.</p>
+            </h2>
+          </div>
+          <div className="text-center">
+          <p className="mb-2">React Native App</p>
             <Image 
               src={KJ}
               width={230}
@@ -187,8 +194,8 @@ const Work: NextPage = () => {
               alt="Avantgarde 2332 Dashboard Image"
               className="rounded"
             />
-            <p className="text-center">React Native App</p>
           </div>
+          
         </div>
       </div>
     </>
