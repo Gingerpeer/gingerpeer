@@ -1,6 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, useEffect } from "react";
 import emailjs from '@emailjs/browser';
 // import emailJs from "../JSON/emailJs.json"
 import { Socials } from "../components/Socials";
@@ -15,6 +15,11 @@ const Contact: NextPage = () => {
   const [ completed, setCompleted ] = useState(false)
   const [ error, setError ] = useState(false)
 
+  // getting env files
+  const [serviceId,setServiceId] = useState("")
+  const [templateId,setTemplateId] = useState("")
+  const [publicId,setPublicId] = useState("")
+
 
   const sendMail = async (e:FormEvent) => {
     e.preventDefault()
@@ -25,9 +30,9 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
-    const ejServiceId = await env.NEXT_PUBLIC_SERVICE_ID
-    const ejTemplateId = await env.NEXT_PUBLIC_TEMPLATE_ID
-    const ejPublicKey = await env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY
+    const ejServiceId = serviceId
+    const ejTemplateId = templateId
+    const ejPublicKey = publicId
       emailjs.send(ejServiceId,ejTemplateId,templateParams,ejPublicKey).then(res=>{
         console.log(console.log('SUCCESS!', res.status, res.text))
         setCompleted(true)
@@ -41,7 +46,17 @@ const Contact: NextPage = () => {
       })
     return true
   }
-  
+  useEffect(()=>{
+    console.log(env.NEXT_PUBLIC_SERVICE_ID.toString())
+    if(typeof(env.NEXT_PUBLIC_SERVICE_ID) === 'string'){
+      setServiceId(env.NEXT_PUBLIC_SERVICE_ID)
+      setTemplateId(env.NEXT_PUBLIC_TEMPLATE_ID)
+      setPublicId(env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY)
+    }
+    
+    
+    
+  },[])
   return (
     <>
       <Head>
