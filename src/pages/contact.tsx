@@ -2,8 +2,9 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
 import emailjs from '@emailjs/browser';
-import emailJs from "../JSON/emailJs.json"
+// import emailJs from "../JSON/emailJs.json"
 import { Socials } from "../components/Socials";
+import { env } from "../env/client.mjs";
 
 
 const Contact: NextPage = () => {
@@ -24,9 +25,9 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
-    const ejServiceId = emailJs.SERVICE_ID
-    const ejTemplateId = emailJs.TEMPLATE_ID
-    const ejPublicKey = emailJs.TEMPLATE_PUBLIC_KEY
+    const ejServiceId = env.NEXT_PUBLIC_SERVICE_ID
+    const ejTemplateId = env.NEXT_PUBLIC_TEMPLATE_ID
+    const ejPublicKey = env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY
       emailjs.send(ejServiceId,ejTemplateId,templateParams,ejPublicKey).then(res=>{
         console.log(console.log('SUCCESS!', res.status, res.text))
         setCompleted(true)
@@ -103,8 +104,6 @@ const Contact: NextPage = () => {
           <div className="bg-slate-800 rounded p-5 mt-5 col-start-2 col-end-4">
             <h4 className="text-center font-extrabold md:text-xl text-cyan-300">Thank you for your communication!</h4>
             <p className="text-center">I will be getting back to your soon.</p>
-            <p className="text-center mb-5">You can also find me on the below socials</p>
-            <Socials />
           </div>}
         </div>  
       }
