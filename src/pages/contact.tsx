@@ -47,7 +47,10 @@ const Contact: NextPage = () => {
     return true
   }
   useEffect(()=>{
-    console.log(env.NEXT_PUBLIC_SERVICE_ID.toString())
+    console.log(env.NEXT_PUBLIC_SERVICE_ID)
+    console.log(env.NEXT_PUBLIC_TEMPLATE_ID)
+    console.log(env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY)
+    // console.log(env.NEXT_PUBLIC_SERVICE_ID.toString())
     if(typeof(env.NEXT_PUBLIC_SERVICE_ID) === 'string'){
       setServiceId(env.NEXT_PUBLIC_SERVICE_ID)
       setTemplateId(env.NEXT_PUBLIC_TEMPLATE_ID)
