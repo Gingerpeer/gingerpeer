@@ -6,6 +6,7 @@ import emailjs from '@emailjs/browser';
 import { Socials } from "../components/Socials";
 
 
+
 const Contact: NextPage = () => {
   const [ name, setName ] = useState("")
   const [ email, setEmail ] = useState("")
@@ -13,7 +14,6 @@ const Contact: NextPage = () => {
   const [ loading, setLoading ] = useState(false)
   const [ completed, setCompleted ] = useState(false)
   const [ error, setError ] = useState(false)
-
   
 
   
@@ -27,8 +27,11 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
+    const service_id:string = emailJSON.Email_SERVICE_ID
+    const template_id:string = emailJSON.Email_TEMPLATE_ID
+    const public_key:string = emailJSON.Email_PUBLIC_KEY
     try {
-      emailjs.send(emailJSON.Email_SERVICE_ID,emailJSON.Email_TEMPLATE_ID, templateParams,emailJSON.Email_PUBLIC_KEY)
+      emailjs.send(service_id,template_id, templateParams,public_key)
     .then(function(response) {
        setCompleted(true)
        setError(false)
