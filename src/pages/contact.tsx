@@ -25,9 +25,9 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
-    const ejServiceId = env.NEXT_PUBLIC_SERVICE_ID
-    const ejTemplateId = env.NEXT_PUBLIC_TEMPLATE_ID
-    const ejPublicKey = env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY
+    const ejServiceId = await env.NEXT_PUBLIC_SERVICE_ID
+    const ejTemplateId = await env.NEXT_PUBLIC_TEMPLATE_ID
+    const ejPublicKey = await env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY
       emailjs.send(ejServiceId,ejTemplateId,templateParams,ejPublicKey).then(res=>{
         console.log(console.log('SUCCESS!', res.status, res.text))
         setCompleted(true)
