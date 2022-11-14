@@ -48,7 +48,7 @@ export default function Layout({children}:{children: React.ReactNode}) {
       
       <Socials />
       <div className='sticky top-[100vh] p-5 text-right text-xs text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300'>
-        <em className='pt-5'>Copyright &copy; 2022 | Pierre Daniel van Zyl </em>
+        <em className='pt-5'>Copyright &copy; 2022 | Pierre van Zyl </em>
       </div>
     </div>
   )
