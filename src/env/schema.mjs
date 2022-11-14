@@ -18,9 +18,6 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
-  NEXT_PUBLIC_SERVICE_ID: z.string(),
-  NEXT_PUBLIC_TEMPLATE_ID: z.string(),
-  NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY: z.string(),
 });
 
 /**
