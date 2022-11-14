@@ -33,7 +33,7 @@ const Contact: NextPage = () => {
     const ejServiceId = serviceId
     const ejTemplateId = templateId
     const ejPublicKey = publicId
-      emailjs.send(ejServiceId,ejTemplateId,templateParams,ejPublicKey).then(res=>{
+      emailjs.send(env.NEXT_PUBLIC_SERVICE_ID,env.NEXT_PUBLIC_TEMPLATE_ID,templateParams,env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY).then(res=>{
         console.log(console.log('SUCCESS!', res.status, res.text))
         setCompleted(true)
         setLoading(false)
