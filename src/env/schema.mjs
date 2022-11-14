@@ -18,9 +18,9 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
-  Email_SERVICE_ID: z.string(),
-  Email_TEMPLATE_ID: z.string(),
-  Email_PUBLIC_KEY: z.string(),
+  // Email_SERVICE_ID: z.string(),
+  // Email_TEMPLATE_ID: z.string(),
+  // Email_PUBLIC_KEY: z.string(),
 });
 
 /**
