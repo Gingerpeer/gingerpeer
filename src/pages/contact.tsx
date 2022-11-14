@@ -1,10 +1,9 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState } from "react";
+import emailJSON from "../JSON/emailJSON.json"
 import emailjs from '@emailjs/browser';
-// import emailJs from "../JSON/emailJs.json"
 import { Socials } from "../components/Socials";
-import { env } from "../env/client.mjs";
 
 
 const Contact: NextPage = () => {
@@ -15,11 +14,9 @@ const Contact: NextPage = () => {
   const [ completed, setCompleted ] = useState(false)
   const [ error, setError ] = useState(false)
 
-  // getting env files
-  const [serviceId,setServiceId] = useState("")
-  const [templateId,setTemplateId] = useState("")
-  const [publicId,setPublicId] = useState("")
+  
 
+  
 
   const sendMail = async (e:FormEvent) => {
     e.preventDefault()
@@ -30,36 +27,29 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
-    const ejServiceId = serviceId
-    const ejTemplateId = templateId
-    const ejPublicKey = publicId
-      emailjs.send(env.NEXT_PUBLIC_SERVICE_ID,env.NEXT_PUBLIC_TEMPLATE_ID,templateParams,env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY).then(res=>{
-        console.log(console.log('SUCCESS!', res.status, res.text))
+    try {
+      emailjs.send(emailJSON.Email_SERVICE_ID,emailJSON.Email_TEMPLATE_ID, templateParams,emailJSON.Email_PUBLIC_KEY)
+    .then(function(response) {
+       setCompleted(true)
+       setError(false)
+       setLoading(false)
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
         setCompleted(true)
+        setError(true)
         setLoading(false)
-        setError(false)
-      }, error => {
-          console.log("FAILED...", error)
-          setError(true)
-          setLoading(false)
-          setCompleted(false)
-      })
+    });
+       
+    } catch (error) {
+      console.log("Error",error)
+      
+    }
+     
+      // console.log(templateParams)
     return true
   }
-  useEffect(()=>{
-    console.log(env.NEXT_PUBLIC_SERVICE_ID)
-    console.log(env.NEXT_PUBLIC_TEMPLATE_ID)
-    console.log(env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY)
-    // console.log(env.NEXT_PUBLIC_SERVICE_ID.toString())
-    if(typeof(env.NEXT_PUBLIC_SERVICE_ID) === 'string'){
-      setServiceId(env.NEXT_PUBLIC_SERVICE_ID)
-      setTemplateId(env.NEXT_PUBLIC_TEMPLATE_ID)
-      setPublicId(env.NEXT_PUBLIC_TEMPLATE_PUBLIC_KEY)
-    }
-    
-    
-    
-  },[])
+  
   return (
     <>
       <Head>
