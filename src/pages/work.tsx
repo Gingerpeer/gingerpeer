@@ -10,7 +10,7 @@ import Justine from "../../public/justine.png"
 import FCHome from "../../public/fcHome.png"
 import FCScan from "../../public/fcScan.png"
 import FCScan2 from "../../public/fcScan2.png"
-import KJ from "../../public/KJCalCalc.jpg"
+import KJ from "../../public/KJCalCalc.png"
 import { useState } from "react"
 
 const Work: NextPage = () => {
