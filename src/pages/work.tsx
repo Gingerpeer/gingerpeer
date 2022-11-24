@@ -237,7 +237,7 @@ const Work: NextPage = () => {
           </h2>
           </div>
           <div className="grid grid-cols-4 text-center">
-            <div className="border border-white w-fit col-start-2 rounded col-span-2">
+            <div className="border border-white w-fit col-start-2 rounded col-span-2 lg:ml-[4vw]">
             <Image 
             src={Justine}
             width={230}
@@ -314,7 +314,7 @@ const Work: NextPage = () => {
             </h2>
           </div>
           <div className="grid grid-cols-4 text-center">
-          <div className="border border-white w-fit col-start-2 rounded col-span-2">
+          <div className="border border-white w-fit col-start-2 rounded col-span-2 lg:ml-[4vw]">
             <Image 
                 src={KJ}
                 width={230}
