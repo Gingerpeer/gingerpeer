@@ -236,9 +236,8 @@ const Work: NextPage = () => {
             <p className="text-sm text-left p-1 md:pl-7">I have Netlify link for the app at <a className="text-cyan-400 hover:text-purple-500" href="https://gleaming-faun-d12349.netlify.app/?name=Justine&batchid=902&user=Pierre&type=register&sessionID=How%20to%20manage%20your%20time%20better%20ON%20%26OFFLINE&trainername=Etrecia&mobile=27609768929&accnum=1453702393&sessiondates=2022-10-12,13%3A00,15%3A00" target="_blank" rel="noreferrer" >Justine</a></p>
           </h2>
           </div>
-          <div className="text-center">
-            <div className="text-center">
-            <p className="p-2">Choosing a Calendar to Add Event</p>
+          <div className="grid grid-cols-4 text-center">
+            <div className="border border-white w-fit col-start-2 rounded col-span-2">
             <Image 
             src={Justine}
             width={230}
@@ -314,15 +313,17 @@ const Work: NextPage = () => {
             <p className="text-sm text-left p-1 md:pl-11">The app can be found at <a className="text-cyan-400 hover:text-purple-500" href="https://play.google.com/store/apps/details?id=com.gingerpeer.kjtocal" target="_blank" rel="noreferrer" >Kj to Calorie</a></p>
             </h2>
           </div>
-          <div className="text-center">
-          <p className="mb-2">React Native App</p>
+          <div className="grid grid-cols-4 text-center">
+          <div className="border border-white w-fit col-start-2 rounded col-span-2">
             <Image 
-              src={KJ}
-              width={230}
-              height={400}
-              alt="Avantgarde 2332 Dashboard Image"
-              className="rounded"
-            />
+                src={KJ}
+                width={230}
+                height={400}
+                alt="Avantgarde 2332 Dashboard Image"
+                className="rounded"
+              />
+          </div>
+            
           </div>
           
         </div>
