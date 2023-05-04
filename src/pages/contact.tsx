@@ -49,7 +49,6 @@ const Contact: NextPage = () => {
       
     }
      
-      // console.log(templateParams)
     return true
   }
   
