@@ -1,10 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import { FormEvent, useState } from "react";
-import emailJSON from "../JSON/emailJSON.json"
+// import emailJSON from "../JSON/emailJSON.json"
 import emailjs from '@emailjs/browser';
 import { Socials } from "../components/Socials";
-
+import { env } from "../env/client.mjs";
 
 
 const Contact: NextPage = () => {
@@ -27,9 +27,9 @@ const Contact: NextPage = () => {
       reply_to: email, 
       message: message
     } 
-    const service_id:string = emailJSON.Email_SERVICE_ID
-    const template_id:string = emailJSON.Email_TEMPLATE_ID
-    const public_key:string = emailJSON.Email_PUBLIC_KEY
+    const service_id = env.NEXT_PUBLIC_Email_SERVICE_ID
+    const template_id = env.NEXT_PUBLIC_Email_TEMPLATE_ID
+    const public_key = env.NEXT_PUBLIC_Email_PUBLIC_KEY
     try {
       emailjs.send(service_id,template_id, templateParams,public_key)
     .then(function(response) {
