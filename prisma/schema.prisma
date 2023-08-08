@@ -52,6 +52,7 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  admin         Boolean
   image         String?
   accounts      Account[]
   sessions      Session[]
