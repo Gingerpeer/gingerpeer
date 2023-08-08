@@ -4,10 +4,13 @@ import Logo from '../../public/G500.png'
 import Link from 'next/link'
 import Head from 'next/head'
 import { Socials } from './Socials'
+import { signIn, signOut } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 
 
 export default function Layout({children}:{children: React.ReactNode}) {
   const [ showMenu, setShowMenu ] = useState("hidden absolute right-9 md:flex md:mx-auto md:items-center md:w-auto md:space-x-6")
+  const { data: session } = useSession()
   return (
     <div className='bg-white text-black dark:bg-black dark:text-white min-h-screen'>
       <Head>
@@ -51,6 +54,12 @@ export default function Layout({children}:{children: React.ReactNode}) {
             <Link href='/about'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>About</a></Link>
             <Link href='/work'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>My Work</a></Link>
             <Link href='/contact'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Contact Me</a></Link>
+            {!session?.user &&<button className='block text-right text-md text-cyan-300 hover:text-purple-500' onClick={()=> {
+              signIn("auth0", { callbackUrl: "/" }).catch(()=>console.log("error"))
+            }}>{"Login"}</button>}
+            {session?.user && <button className='bg-red-600 p-2 rounded hover:bg-red-400' onClick={()=>{
+              signOut()
+            }}>Logout</button>}
             {/* <Link href='/blog'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Blog</a></Link>
             <Link href='/admin'><a className='block text-right text-md text-cyan-300 hover:text-purple-500'>Admin</a></Link> */}
           </div>

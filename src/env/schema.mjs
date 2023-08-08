@@ -18,6 +18,9 @@ export const serverSchema = z.object({
   ),
   DISCORD_CLIENT_ID: z.string(),
   DISCORD_CLIENT_SECRET: z.string(),
+  AUTH0_CLIENT_ID: z.string(),
+  AUTH0_CLIENT_SECRET: z.string(),
+  AUTH0_ISSUER: z.string(),
   // Email_SERVICE_ID: z.string(),
   // Email_TEMPLATE_ID: z.string(),
   // Email_PUBLIC_KEY: z.string(),
@@ -47,3 +50,9 @@ export const clientEnv = {
   NEXT_PUBLIC_Email_TEMPLATE_ID: process.env.NEXT_PUBLIC_Email_TEMPLATE_ID,
   NEXT_PUBLIC_Email_PUBLIC_KEY: process.env.NEXT_PUBLIC_Email_PUBLIC_KEY,
 };
+
+export const serverEnv = {
+  AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
+  AUTH0_CLIENT_SECRET: process.env.AUTH0_CLIENT_SECRET,
+  AUTH0_ISSUER: process.env.AUTH0_ISSUER,
+}
