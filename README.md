@@ -7,16 +7,22 @@ Contact Information
 Location: Polokwane, Limpopo, South Africa
 Phone: (+27)74 674 8016
 Email: pierrevanzyl@hotmail.com
-LinkedIn: https://www.linkedin.com/in/pierre-van-zyl-3a1413b8/
+LinkedIn: https://www.linkedin.com/in/pierre-van-zyl-3a1413b8
+
+
 Portfolio Website: https://www.gingerpeer.dev/
+
+
 Summary
 I am a passionate software engineer specialising in Full Stack development with four years of experience, committed to creating robust and well-thought-out UI and UX applications with great attention to detail. I love full-stack development, as it makes it easier to collaborate with both front-end and backend teams or build projects as a solo dev. I am very passionate about putting the user first ensuring to use smart, creative and consistent UX (User Experience) and UI (User Interface) design practices to ensure ease of use. I am Adept in utilizing the following languages:
+
 TypeScript
 Java
 Go Lang
 Python
 PHP
 BASH
+
 My Expertise and go to technology for small businesses and startups to achieve optimal performance and user experience is the T3 stack comprising of:
 TypeScript
 Next.js
@@ -24,10 +30,13 @@ tRCP
 React Query
 Tailwind.css
 PostgreSQL
+
 I, however, am very flexible and find that customer success more often than not requires front-end and back-end developers to collaborate with one another and designers and change tech stacks to suit everyone's needs. Due to this reason, I find it paramount to keep up with industry trends in information technology, Artificial intelligence / Automation, design and coding through the reading of technical documentation and training & development.
+
 I have a Proven ability to create complex and innovative web applications utilising many different libraries.
 As well as incorporating good software engineering practices both within functional programming and Object Oriented Programming.
 I am flexible and experienced in working in a corporate environment, small businesses and startup culture, I am a great communicator and positive collaborator committed to satisfying customers, with strong verbal and written communication skills in both English and Afrikaans. I have mentored and been mentored and found amazing results in dedicated mentorship, to collaborate with both Junior and Senior Developers and Designers.
+
 Skills
 Languages
 Formal
@@ -100,6 +109,7 @@ Ios Development
 Command-Line Development
 Professional Experience
 Software Developer
+
 Avant Garde 2332 (Full Stack Developer), (February 2021-current)
 Developed a complex web application solving
 Human Resource and Industrial Relations problems
