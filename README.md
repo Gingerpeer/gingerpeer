@@ -1,6 +1,7 @@
 
-#Pierre van Zyl
-#Software Engineer
+Pierre van Zyl
+
+Software Engineer
 
 
 Contact Information
