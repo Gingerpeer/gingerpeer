@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Gingerpeer | Home">
+	<main class="flex flex-col p-5">
+		<h1 class="text-3xl md:text-6xl text-center text-purple-500"><em class='text-cyan-400'>&lt;</em> Pierre Daniel van Zyl <em class='text-cyan-400'>/&gt;</em></h1>
+		<br/>
+        <h2 class="mb-5 text-xl text-center md:text-3xl text-white">FullStack React Engineer</h2>
+        
+        <div class="flex flex-col md:flex lg:flex-row mx-auto">
+          <article class="mb-10 md:basis-1/2 p-2 mr-1 lg:ml-20">
+            <p class="mt-7 mb-7 text-white">Hi there.<br/> My name is Pierre van Zyl I am a software engineer specializing in the T3 stack. <br/>Ie. TypeScript, Next.js, tRCP, React Query, Tailwind.css & PostgreSql.</p>
+            <p class="mt-7 text-white">I build web applications, mobile applications, e-commerce websites and landing pages. Building your specific product and meeting your individual needs is what I strive for, all whilst ensuring that you get a beautifully designed, fully functional and secure application.</p>
+            <p class="mt-7 text-white">My specialization in Next.js inevitably results in my expertise in React.js which I use to build both Web Based and Mobile Base Applications with either Next.js, React or React Native.
+            </p>
+            <p class="mt-7 text-white">I would love to connect with you, and start the adventure of building your application.</p>
+             <div class="font-extrabold text-transparent text-5xl bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-300 text-center mt-20 animate-bounce hover:animate-none" >
+                <a href="/contact">Contact me</a>
+             </div>  
+          </article>
+          <span class="mx-auto">
+            <img class="rounded"  width={400} height={500} src='/profilePic.jpg' alt="Pierre van Zyl Picture" />
+          </span>
+        </div>
+	</main>
+</Layout>
